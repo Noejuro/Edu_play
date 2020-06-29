@@ -1,28 +1,77 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-col align="start" style="height: 100%;" md="12" lg="12" xl="12" cols="12" class="mt-0 pt-0 pb-0 mb-0">
+      <v-row justify="center" style="width: 100vw; height: 100%" class="py-0 my-0">
+        <router-view></router-view> 
+      </v-row>
+    </v-col>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+
+  data: () => ({
+    //
+  }),
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  html{
+      overflow-y: scroll;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+
+    body {
+      height: 100%;
+    }
+
+  .hidscroll {
+    overflow-y: scroll;
+    overflow-x: hidden
+  }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 2px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: white; 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  .buttonLower{
+      text-transform: none !important;
+  }
+
+  .Bold {
+        font-family: 'Work Sans', sans-serif; 
+        font-weight:600;
+    }
+
+    .Regular {
+        font-family: 'Work Sans', sans-serif; 
+        font-weight:400;
+    }
+
+    .Thin {
+        font-family: 'Work Sans', sans-serif; 
+        font-weight:300;
+    }
 </style>
