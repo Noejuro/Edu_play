@@ -24,7 +24,7 @@
                     </v-col>
                     <v-col cols="auto" align-self="center">
                         <v-row justify="center" class="px-4">
-                            <v-btn class="buttonLower" rounded color="#36593C" style="color: white">
+                            <v-btn @click="$router.push({ name: 'sign_up'})" class="buttonLower" rounded color="#36593C" style="color: white">
                                 Entrar
                             </v-btn>
                         </v-row>
@@ -34,7 +34,7 @@
         </v-row>
         <v-row class="py-0 my-0">
             <v-img src="@/assets/resources/code-banner.jpg"  height="570" max-width="100%" style="opacity:1; position: relative">
-                <v-row class="Thin" justify="center" style="position: absolute; left: 0; right: 0; margin-left: auto; margin-right: auto; top: 30%; color: white; font-size: 50px; max-width: 990px">
+                <v-row class="Thin" justify="center" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; color: white; font-size: 45px; max-width: 990px; height: 210px;">
                     ¡Hola! Bienvenido a Edu Play, tu STI para aprender desarrollo web como un profesional
                 </v-row>
             </v-img>
@@ -42,7 +42,7 @@
         <v-row class="Thin mt-10" justify="center" style="font-size: 40px; color: #4D4D4D">
             ¡Nuestras clases!
         </v-row>
-        <v-row justify="center">
+        <v-row justify="center" class="mt-4">
             <v-col cols="auto">
                 <v-card width="350" height="390" elevation="5" style="border-radius: 15px">
                     <v-col cols="12" class="py-0 my-0" style="height: 100%">
@@ -53,7 +53,7 @@
                 </v-card>
             </v-col>
             <v-col cols="auto">
-                <v-card width="350" height="390" elevation="5" style="border-radius: 15px">
+                <v-card  width="350" height="390" elevation="5" style="border-radius: 15px">
                     <v-col cols="12" class="pt-0 mt-0">
                         <v-row>
                             <v-img src="@/assets/resources/vue.png"  height="180" max-width="100%" style="border-radius: 15px 15px 0px 0px"></v-img>
@@ -65,7 +65,7 @@
                             ¡Todo lo que necesitas para aprender a programar web single page!
                         </v-row>
                         <v-row justify="center" class="pt-10">
-                            <v-btn class="buttonLower" rounded color="#4C8055" style="color: white; width: 50%">
+                            <v-btn @click="goTo" class="buttonLower" rounded color="#4C8055" style="color: white; width: 50%">
                                 Comenzar
                             </v-btn>
                         </v-row>
@@ -84,7 +84,7 @@
             
         </v-row>
         <v-row justify="center" class="mt-12 mb-12">
-            <v-btn class="buttonLower" x-large="" rounded color="#4C8055" style="color: white; font-size: 15px">
+            <v-btn @click="$router.push({ name: 'error'})" class="buttonLower" x-large="" rounded color="#4C8055" style="color: white; font-size: 15px">
                 Ver todas las clases
             </v-btn>
         </v-row>
@@ -93,6 +93,11 @@
 
 <script>
 export default {
+    methods: {
+        goTo(){
+            console.log("Easter Egg Gggg");
+        }
+    }
 }
 </script>
 
