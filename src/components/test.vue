@@ -63,6 +63,30 @@
                     </v-row>
 
 
+                <v-dialog v-model="dialog" persistent max-width="900px">
+                    <v-card width="100%">
+                        <v-col>
+                            <v-row justify="center" class="Bold mt-6" style="font-size: 25px; color: #4D4D4D">
+                                Eres estilo {{estilo}}
+                            </v-row>
+                            <v-row justify="center" class="Regular mt-4" style="font-size: 16px; color: #4D4D4D; width: 90%; text-align: left; margin: 0 auto">
+                                {{description}}
+                            </v-row>
+                            <v-row justify="center" class="Regular mt-2" style="font-size: 16px; color: #4D4D4D; width: 90%; text-align: left; margin: 0 auto">
+                                {{caracteristicas}}
+                            </v-row>
+                            <v-row justify="center" class="Bold mt-5" style="font-size: 14px; color: #4D4D4D; width: 90%; text-align: center; margin: 0 auto">
+                                Ahora que conocemos tu éstilo de aprendizaje puedes regresar al inicio y seleccionar un curso, nosotros adaptaremos cualquier curso que tomes de la mejor forma para que aprovechemos tu estilo de aprendizaje {{estilo}} ¡Bienvenido a tu futuro!
+                            </v-row>
+                            <v-row justify="center" class="mt-10 mb-2">
+                                <v-btn @click="$router.push({ name: 'landing'}); dialog = false" class="buttonLower" x-large="" width="200px" rounded color="#36593C" style="color: white; font-size: 15px">
+                                    Inicio
+                                </v-btn>
+                            </v-row>
+                        </v-col>
+                    </v-card>
+                </v-dialog>
+
 
                 </v-col>
                 
@@ -76,6 +100,9 @@ export default {
     data () {
         return {
             terms: false,
+            estilo: "",
+            description: "",
+            dialog: false,
             questions: [
                 {
                     ask: "1. Cuando aprendo...",
@@ -214,18 +241,35 @@ export default {
             }
             var CAEC = CA - EC;
             var EAOR = EA - OR;
-            var estilo = "";
             if(CAEC <= 3 && EAOR <= 5)
-                estilo = "Divergente";
+                {
+                    this.estilo = "Divergente";
+                    this.description = "Se desempeña mejor en cosas concretas (EC) y la observación reflexiva (OR). Su punto más fuerte es la capacidad imaginativa. Se destaca porque tiende a considerar situaciones concretas desde muchas perspectivas. Se califica este estilo como “divergente” porque es una persona que funciona bien en situaciones que exigen producción de ideas (como en la “lluvia de ideas”)."
+                    this.caracteristicas = "CARACTERÍSTICAS DEL DIVERGENTE: Kinestésico, aprende con el movimiento. Experimental, reproduce lo aprendido. Flexible, se acomoda hasta lograr aprender. Creativo, tiene propuestas originales. Informal, rompe las normas tradicionales."
+                }
             else if(CAEC <= 3 && EAOR > 5)
-                estilo = "Adaptador";
+            {
+                this.estilo = "Adaptador";
+                this.description = "Se desempeña mejor en la experiencia concreta (EC) y la experimentación activa (EA). Su punto más fuerte reside en hacer cosas e involucrarse en experiencias nuevas. Suele arriesgarse más que las personas de los otros tres estilos de aprendizaje. Se le llama “acomodador” porque se destaca en situaciones donde hay que adaptarse a circunstancias inmediatas específicas. Es pragmático, en el sentido de descartar una teoría sobre lo que hay que hacer, si ésta no se aviene con los “hechos”. El acomodador se siente cómodo con las personas, aunque a veces se impacienta y es “atropellador”.";
+                this.caracteristicas = "CARACTERÍSTICAS DEL ACOMODADOR: Intuitivo, anticipa soluciones. Observador, atento a los detalles. Relacionador, enlaza los diversos contenidos. Imaginativo, grafica mentalmente. Dramático, vivencia los contenidos. Emocional, el entorno es determinante.";
+            }
+                
             else if(CAEC > 3 && EAOR > 5)
-                estilo = "Convergente";
+            {
+                this.estilo = "Convergente";
+                this.description = "Su punto más fuerte reside en la aplicación práctica de las ideas. Esta persona se desempeña mejor en las pruebas que requieren una sola respuesta o solución concreta para una pregunta o problema. Organiza sus conocimientos de manera que se pueda concretar en resolver problemas usando razonamiento hipotético deductivo. Estas personas se orientan más a las cosas que a las personas. Tienden a tener menos intereses por la materia física y se orientan a la especialización científica.";
+                this.caracteristicas = "CARACTERÍSTICAS DEL CONVERGENTE: Práctico. Transfiere lo aprendido. Se involucra en experiencias nuevas. Entra fácilmente en materia. Hábil para captar. Va a la solución de problemas. Es eficiente en la aplicación de la teoría.";
+            }
             else if(CAEC > 3 && EAOR <= 5)
-                estilo = "Asimilador";
+            {
+                this.estilo = "Asimilador";
+                this.description = "Predomina en esta persona la conceptualización abstracta (CA) y la observación reflexiva (OR). Su punto más fuerte lo tiene en la capacidad de crear modelos teóricos. Se caracteriza por un razonamiento inductivo y poder juntar observaciones dispares en una explicación integral. Se interesa menos por las personas que por los conceptos abstractos, y dentro de éstos prefiere lo teórico a la aplicación práctica. Suele ser un científico o un investigador.";
+                this.caracteristicas = "CARACTERÍSTICAS DEL ASIMILADOR: Reflexivo, razona lo aprendido. Analítico (descompone el mensaje en sus elementos constituyentes. Organizado, metódico y sistemático. Estudioso, se concentra en el aprender. Lógico, riguroso en el razonamiento. Racional, sólo considera verdad lo que su razón puede explicar. Secuencial, tiende al razonamiento deductivo.";
+            }
             console.log(EC, OR, CA, EA);
             console.log(CAEC, EAOR);
-            console.log(estilo);
+            console.log(this.estilo);
+            this.dialog = true;
         }
     }
 }
