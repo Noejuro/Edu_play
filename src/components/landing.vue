@@ -44,10 +44,21 @@
         </v-row>
         <v-row justify="center" class="mt-4">
             <v-col cols="auto">
-                <v-card width="350" height="390" elevation="5" style="border-radius: 15px">
-                    <v-col cols="12" class="py-0 my-0" style="height: 100%">
-                        <v-row style="height: 100%">
-                            <v-img src="@/assets/resources/under.jpg"  height="100%" max-width="100%" style="border-radius: 15px"></v-img>
+                <v-card  width="350" height="390" elevation="5" style="border-radius: 15px">
+                    <v-col cols="12" class="pt-0 mt-0">
+                        <v-row>
+                            <v-img src="@/assets/resources/git.jpg"  height="180" max-width="100%" style="border-radius: 15px 15px 0px 0px"></v-img>
+                        </v-row>
+                        <v-row justify="center" class="pt-3 Bold" style="font-size: 25px; color: #4D4D4D">
+                            Curso de Git
+                        </v-row>
+                        <v-row justify="center" class="pt-1" style="font-size: 18px; color: #4D4D4D">
+                            Aprende una de las herramientas más importantes en el desarrollo de SW
+                        </v-row>
+                        <v-row justify="center" class="pt-10">
+                            <v-btn @click="$router.push({ name: 'error'})" class="buttonLower" rounded color="#4C8055" style="color: white; width: 50%">
+                                Comenzar
+                            </v-btn>
                         </v-row>
                     </v-col>
                 </v-card>
@@ -96,6 +107,7 @@ export default {
     methods: {
         goTo(){
             console.log("Easter Egg Gggg");
+            this.$router.push({ name: 'vue_landing'})
         }
     }
 }

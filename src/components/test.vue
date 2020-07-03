@@ -269,6 +269,7 @@ export default {
             console.log(EC, OR, CA, EA);
             console.log(CAEC, EAOR);
             console.log(this.estilo);
+            this.$store.state.userStyle = this.estilo;
             this.dialog = true;
         }
     }
